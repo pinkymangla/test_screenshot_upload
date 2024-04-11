@@ -1,8 +1,10 @@
-import json
 import base64
+import json
+
 from flask import Flask, request
 
 app = Flask(__name__)
+
 
 @app.route('/', methods=['POST'])
 def upload_screenshot():
@@ -16,7 +18,6 @@ def upload_screenshot():
     # with open('screenshot.png', 'wb') as f:
     #     f.write(screenshot_bytes)
 
-    
     # Get the screenshot data from the request
     screenshot_data = request.json.get('screenshot')
 
@@ -33,8 +34,8 @@ def upload_screenshot():
     return json.dumps({
         'message': 'Screenshot received successfully',
         'image_data': encoded_image
-    },indent=4)
+    }, indent=4)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
-
