@@ -13,8 +13,8 @@ def upload_screenshot():
     screenshot_bytes = base64.b64decode(screenshot_data)
 
     # Save screenshot to file (or perform further processing)
-    with open('screenshot.png', 'wb') as f:
-        f.write(screenshot_bytes)
+    # with open('screenshot.png', 'wb') as f:
+    #     f.write(screenshot_bytes)
 
     return json.dumps({'key':'Screenshot received successfully'},indent=4)
 
