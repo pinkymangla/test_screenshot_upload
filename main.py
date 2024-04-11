@@ -1,8 +1,10 @@
+import json
+
 from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/upload-screenshot', methods=['POST'])
+@app.route('/', methods=['POST'])
 def upload_screenshot():
     screenshot_data = request.json.get('screenshot')
 
@@ -14,7 +16,8 @@ def upload_screenshot():
     with open('screenshot.png', 'wb') as f:
         f.write(screenshot_bytes)
 
-    return 'Screenshot received successfully'
+    return json.dumps({'key':'Screenshot received successfully'},indent=4)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
